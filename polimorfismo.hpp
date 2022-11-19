@@ -42,5 +42,4 @@ class Cylinder : public Circle{
 
         void imprime(Cylinder *c);
 };
-
 #endif
