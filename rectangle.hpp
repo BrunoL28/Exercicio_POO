@@ -3,10 +3,10 @@
 
 class Rectangle: public Shape{
     private:
-    int length;
-    int width;
+        int length;
+        int width;
 
     public:
-    double getArea() override;
-    std::string toString() override;
+        double getArea() override;
+        std::string toString() override;
 };
