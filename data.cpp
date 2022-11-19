@@ -1,9 +1,9 @@
 #include <string>
-#include "Hora.hpp"
+#include "Data.hpp"
 
-Hora::Hora (int h, int m, int s):
-hora(h), min(m), seg(s){}
+    Data::Data (int d, int m, int a):
+    dia(d), mes(m), ano(a){}
 
-std::string Hora::imprime(){
-    return std::to_string(hora) + "/" + std::to_string(min) + "/" + std::to_string(seg);
-}
+    std::string Data::imprime(){
+        return std::to_string(dia) + "/" + std::to_string(mes) + "/" + std::to_string(ano);
+    }
