@@ -1,16 +1,32 @@
-    #include "Poupanca.hpp"
-    
-    Poupanca::Poupanca(float s, float r):
-        Conta(s), rendimento(r) {}
+#include "ContaCorrente.hpp"
+#include <iostream>
 
-    float Poupanca::getRendimento(){
-        return rendimento;
-    }
 
-    void Poupanca::setRendimento(float r){
-        rendimento = r;
-    }
+ContaCorrente::ContaCorrente(float s, float t):
+    Conta(s), taxa(t) {}
 
-    float Poupanca::CalculaRendimento(){
-        return (getSaldo() * getRendimento());
+void ContaCorrente::setTaxa(float t){
+    taxa = t;
+}
+
+float ContaCorrente::getTaxa(){
+    return taxa;
+}
+
+void ContaCorrente::Sacar(float valor){ 
+    if (getSaldo() < (valor + getTaxa()))
+        std::cout << "Valor de saque (com taxa) é maior que o saldo.\n";
+    else {
+        float debitar = getSaldo() - valor - getTaxa();
+        setSaldo(debitar);
     }
+}
+
+void ContaCorrente::Depositar(float valor){
+    if (getSaldo() < getTaxa())
+        std::cout << "Impossivel depositar (saldo menor que a taxa de deposito).\n";
+    else {
+        float deposito = valor - getSaldo();
+        setSaldo(deposito);
+    }
+}
